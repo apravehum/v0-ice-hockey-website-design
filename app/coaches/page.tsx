@@ -46,8 +46,6 @@ const coaches = [
   {
     name: "Laura Krūmiņa",
     role: "Jauniešu treneris",
-    experience: "7+ gadi pieredzes",
-    specialization: "Bērnu un jauniešu apmācība",
     image: "/youth-ice-hockey-coach-female-portrait.jpg",
     quote: "Jaunieši ir hokeja nākotne",
   },

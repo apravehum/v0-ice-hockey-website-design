@@ -4,75 +4,76 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Ice hockey premium dark theme with ice blue accents */
-  --background: oklch(0.08 0 0);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.12 0 0);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.12 0 0);
-  --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.65 0.19 230);
-  --primary-foreground: oklch(0.08 0 0);
-  --secondary: oklch(0.18 0 0);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.25 0 0);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.65 0.19 230);
-  --accent-foreground: oklch(0.08 0 0);
+  /* Updated to team logo color palette: Primary Blue, Deep Navy, Ice White, Sky Blue, Cool Gray */
+  --background: oklch(0.99 0 0); /* Ice White for main background */
+  --foreground: oklch(0.25 0.02 240); /* Steel Gray for text */
+  --card: oklch(0.99 0 0); /* Ice White for cards */
+  --card-foreground: oklch(0.25 0.02 240); /* Steel Gray for card text */
+  --popover: oklch(0.99 0 0);
+  --popover-foreground: oklch(0.25 0.02 240);
+  --primary: oklch(0.55 0.12 220); /* Primary Blue #0097B8 */
+  --primary-foreground: oklch(0.99 0 0); /* Ice White text on primary */
+  --secondary: oklch(0.95 0.01 210); /* Frost Blue for subtle backgrounds */
+  --secondary-foreground: oklch(0.25 0.02 240);
+  --muted: oklch(0.95 0.01 210); /* Frost Blue */
+  --muted-foreground: oklch(0.68 0.01 220); /* Cool Gray */
+  --accent: oklch(0.65 0.15 210); /* Highlight Cyan for accents */
+  --accent-foreground: oklch(0.15 0.04 230); /* Deep Navy text on accent */
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.22 0 0);
-  --input: oklch(0.22 0 0);
-  --ring: oklch(0.65 0.19 230);
-  --chart-1: oklch(0.65 0.19 230);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --border: oklch(0.85 0.01 220); /* Light border */
+  --input: oklch(0.85 0.01 220);
+  --ring: oklch(0.55 0.12 220); /* Primary Blue for focus rings */
+  --chart-1: oklch(0.55 0.12 220); /* Primary Blue */
+  --chart-2: oklch(0.65 0.15 210); /* Highlight Cyan */
+  --chart-3: oklch(0.15 0.04 230); /* Deep Navy */
+  --chart-4: oklch(0.68 0.01 220); /* Cool Gray */
+  --chart-5: oklch(0.75 0.12 210); /* Sky Blue */
   --radius: 0.5rem;
-  --sidebar: oklch(0.12 0 0);
-  --sidebar-foreground: oklch(0.98 0 0);
-  --sidebar-primary: oklch(0.65 0.19 230);
-  --sidebar-primary-foreground: oklch(0.08 0 0);
-  --sidebar-accent: oklch(0.18 0 0);
-  --sidebar-accent-foreground: oklch(0.98 0 0);
-  --sidebar-border: oklch(0.22 0 0);
-  --sidebar-ring: oklch(0.65 0.19 230);
+  --sidebar: oklch(0.15 0.04 230); /* Deep Navy for sidebar */
+  --sidebar-foreground: oklch(0.99 0 0); /* Ice White text */
+  --sidebar-primary: oklch(0.55 0.12 220); /* Primary Blue */
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.22 0.04 230); /* Slightly lighter navy for hover */
+  --sidebar-accent-foreground: oklch(0.99 0 0);
+  --sidebar-border: oklch(0.25 0.04 230);
+  --sidebar-ring: oklch(0.55 0.12 220);
 }
 
 .dark {
-  --background: oklch(0.08 0 0);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.12 0 0);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.12 0 0);
-  --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.65 0.19 230);
-  --primary-foreground: oklch(0.08 0 0);
-  --secondary: oklch(0.18 0 0);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.25 0 0);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.65 0.19 230);
-  --accent-foreground: oklch(0.08 0 0);
+  /* Dark mode uses Deep Navy as background with Ice White text */
+  --background: oklch(0.15 0.04 230); /* Deep Navy background */
+  --foreground: oklch(0.99 0 0); /* Ice White text */
+  --card: oklch(0.2 0.04 230); /* Slightly lighter navy for cards */
+  --card-foreground: oklch(0.99 0 0);
+  --popover: oklch(0.2 0.04 230);
+  --popover-foreground: oklch(0.99 0 0);
+  --primary: oklch(0.55 0.12 220); /* Primary Blue */
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.25 0.04 230); /* Darker navy for secondary */
+  --secondary-foreground: oklch(0.99 0 0);
+  --muted: oklch(0.25 0.04 230);
+  --muted-foreground: oklch(0.68 0.01 220); /* Cool Gray */
+  --accent: oklch(0.65 0.15 210); /* Highlight Cyan */
+  --accent-foreground: oklch(0.15 0.04 230);
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.22 0 0);
-  --input: oklch(0.22 0 0);
-  --ring: oklch(0.65 0.19 230);
-  --chart-1: oklch(0.65 0.19 230);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.12 0 0);
-  --sidebar-foreground: oklch(0.98 0 0);
-  --sidebar-primary: oklch(0.65 0.19 230);
-  --sidebar-primary-foreground: oklch(0.08 0 0);
-  --sidebar-accent: oklch(0.18 0 0);
-  --sidebar-accent-foreground: oklch(0.98 0 0);
-  --sidebar-border: oklch(0.22 0 0);
-  --sidebar-ring: oklch(0.65 0.19 230);
+  --border: oklch(0.3 0.04 230);
+  --input: oklch(0.3 0.04 230);
+  --ring: oklch(0.55 0.12 220);
+  --chart-1: oklch(0.55 0.12 220);
+  --chart-2: oklch(0.65 0.15 210);
+  --chart-3: oklch(0.75 0.12 210);
+  --chart-4: oklch(0.68 0.01 220);
+  --chart-5: oklch(0.85 0.08 210);
+  --sidebar: oklch(0.15 0.04 230);
+  --sidebar-foreground: oklch(0.99 0 0);
+  --sidebar-primary: oklch(0.55 0.12 220);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.22 0.04 230);
+  --sidebar-accent-foreground: oklch(0.99 0 0);
+  --sidebar-border: oklch(0.25 0.04 230);
+  --sidebar-ring: oklch(0.55 0.12 220);
 }
 
 @theme inline {
