@@ -1,9 +1,14 @@
+"use client"
+
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { User, Users, Clock, Target } from "lucide-react"
+import { useState } from "react"
 
 export default function LessonsPage() {
+  const [activeTab, setActiveTab] = useState<"individual" | "group">("individual")
+
   return (
     <main className="min-h-screen pt-20">
       {/* Hero Section */}
@@ -22,123 +27,149 @@ export default function LessonsPage() {
         </div>
       </section>
 
-      {/* Lesson Types */}
       <section className="py-12 pb-24">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Individual Lessons */}
-            <Card className="overflow-hidden bg-card border-border group hover:border-primary transition-all">
-              <div className="relative h-96 overflow-hidden">
-                <img
-                  src="/placeholder.svg?height=600&width=800"
-                  alt="Individual Training"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-                <div className="absolute bottom-6 left-6">
-                  <User className="w-12 h-12 text-primary mb-2" />
-                </div>
-              </div>
-              <div className="p-8">
-                <h2 className="text-4xl font-bold mb-4 uppercase tracking-tight">Individuālās nodarbības</h2>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Personalizēta apmācība ar pieredzējušu treneri. Fokuss uz tavām stiprajām un vājajām pusēm.
-                </p>
+          {/* Tab Navigation */}
+          <div className="flex gap-4 mb-8 border-b border-border">
+            <button
+              onClick={() => setActiveTab("individual")}
+              className={`px-6 py-3 font-semibold uppercase tracking-tight transition-colors relative ${
+                activeTab === "individual" ? "text-primary" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Individuālās nodarbības
+              {activeTab === "individual" && <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" />}
+            </button>
+            <button
+              onClick={() => setActiveTab("group")}
+              className={`px-6 py-3 font-semibold uppercase tracking-tight transition-colors relative ${
+                activeTab === "group" ? "text-primary" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Nodarbības grupām
+              {activeTab === "group" && <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" />}
+            </button>
+          </div>
 
-                <div className="space-y-4 mb-6">
-                  <div className="flex items-start gap-3">
-                    <Target className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold mb-1">Personalizēta programma</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Treniņu plāns, kas pielāgots tavam līmenim un mērķiem
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold mb-1">Elastīgs grafiks</h4>
-                      <p className="text-sm text-muted-foreground">Izvēlies sev ērtāko laiku un dienu</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <User className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold mb-1">100% uzmanība</h4>
-                      <p className="text-sm text-muted-foreground">Treneris strādā tikai ar tevi</p>
-                    </div>
+          {/* Tab Content */}
+          <div>
+            {/* Individual Lessons Tab */}
+            {activeTab === "individual" && (
+              <Card className="overflow-hidden bg-card border-border group hover:border-primary transition-all">
+                <div className="relative h-96 overflow-hidden">
+                  <img
+                    src="/individual-hockey-training.jpg"
+                    alt="Individual Training"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+                  <div className="absolute bottom-6 left-6">
+                    <User className="w-12 h-12 text-primary mb-2" />
                   </div>
                 </div>
-
-                <div className="bg-secondary p-4 rounded-lg mb-6">
-                  <p className="text-sm text-muted-foreground mb-2">Cena no</p>
-                  <p className="text-3xl font-bold text-primary">
-                    €45<span className="text-lg text-muted-foreground">/nodarbība</span>
+                <div className="p-8">
+                  <h2 className="text-4xl font-bold mb-4 uppercase tracking-tight">Individuālās nodarbības</h2>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    Personalizēta apmācība ar pieredzējušu treneri. Fokuss uz tavām stiprajām un vājajām pusēm.
                   </p>
-                </div>
 
-                <Button size="lg" className="w-full" asChild>
-                  <Link href="/lessons/individual">Uzzināt vairāk</Link>
-                </Button>
-              </div>
-            </Card>
-
-            {/* Group Lessons */}
-            <Card className="overflow-hidden bg-card border-border group hover:border-primary transition-all">
-              <div className="relative h-96 overflow-hidden">
-                <img
-                  src="/placeholder.svg?height=600&width=800"
-                  alt="Group Training"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-                <div className="absolute bottom-6 left-6">
-                  <Users className="w-12 h-12 text-primary mb-2" />
-                </div>
-              </div>
-              <div className="p-8">
-                <h2 className="text-4xl font-bold mb-4 uppercase tracking-tight">Nodarbības grupām</h2>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Trenējies kopā ar citiem spēlētājiem savā līmenī. Attīsti komandas spēles prasmes.
-                </p>
-
-                <div className="space-y-4 mb-6">
-                  <div className="flex items-start gap-3">
-                    <Users className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold mb-1">Mazas grupas</h4>
-                      <p className="text-sm text-muted-foreground">Maksimums 8 spēlētāji grupā</p>
+                  <div className="space-y-4 mb-6">
+                    <div className="flex items-start gap-3">
+                      <Target className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold mb-1">Personalizēta programma</h4>
+                        <p className="text-sm text-muted-foreground">
+                          Treniņu plāns, kas pielāgots tavam līmenim un mērķiem
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Clock className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold mb-1">Elastīgs grafiks</h4>
+                        <p className="text-sm text-muted-foreground">Izvēlies sev ērtāko laiku un dienu</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <User className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold mb-1">100% uzmanība</h4>
+                        <p className="text-sm text-muted-foreground">Treneris strādā tikai ar tevi</p>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <Target className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold mb-1">Līmeņa grupas</h4>
-                      <p className="text-sm text-muted-foreground">Grupas sadalītas pēc vecuma un prasmju līmeņa</p>
-                    </div>
+
+                  <div className="bg-secondary p-4 rounded-lg mb-6">
+                    <p className="text-sm text-muted-foreground mb-2">Cena no</p>
+                    <p className="text-3xl font-bold text-primary">
+                      €45<span className="text-lg text-muted-foreground">/nodarbība</span>
+                    </p>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold mb-1">Regulārs grafiks</h4>
-                      <p className="text-sm text-muted-foreground">Nodarbības 2-3 reizes nedēļā</p>
-                    </div>
+
+                  <Button size="lg" className="w-full" asChild>
+                    <Link href="/contact">Pieteikties</Link>
+                  </Button>
+                </div>
+              </Card>
+            )}
+
+            {/* Group Lessons Tab */}
+            {activeTab === "group" && (
+              <Card className="overflow-hidden bg-card border-border group hover:border-primary transition-all">
+                <div className="relative h-96 overflow-hidden">
+                  <img
+                    src="/group-hockey-training.jpg"
+                    alt="Group Training"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+                  <div className="absolute bottom-6 left-6">
+                    <Users className="w-12 h-12 text-primary mb-2" />
                   </div>
                 </div>
-
-                <div className="bg-secondary p-4 rounded-lg mb-6">
-                  <p className="text-sm text-muted-foreground mb-2">Cena no</p>
-                  <p className="text-3xl font-bold text-primary">
-                    €25<span className="text-lg text-muted-foreground">/nodarbība</span>
+                <div className="p-8">
+                  <h2 className="text-4xl font-bold mb-4 uppercase tracking-tight">Nodarbības grupām</h2>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    Trenējies kopā ar citiem spēlētājiem savā līmenī. Attīsti komandas spēles prasmes.
                   </p>
-                </div>
 
-                <Button size="lg" className="w-full" asChild>
-                  <Link href="/lessons/group">Uzzināt vairāk</Link>
-                </Button>
-              </div>
-            </Card>
+                  <div className="space-y-4 mb-6">
+                    <div className="flex items-start gap-3">
+                      <Users className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold mb-1">Mazas grupas</h4>
+                        <p className="text-sm text-muted-foreground">Maksimums 8 spēlētāji grupā</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Target className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold mb-1">Līmeņa grupas</h4>
+                        <p className="text-sm text-muted-foreground">Grupas sadalītas pēc vecuma un prasmju līmeņa</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <Clock className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold mb-1">Regulārs grafiks</h4>
+                        <p className="text-sm text-muted-foreground">Nodarbības 2-3 reizes nedēļā</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-secondary p-4 rounded-lg mb-6">
+                    <p className="text-sm text-muted-foreground mb-2">Cena no</p>
+                    <p className="text-3xl font-bold text-primary">
+                      €25<span className="text-lg text-muted-foreground">/nodarbība</span>
+                    </p>
+                  </div>
+
+                  <Button size="lg" className="w-full" asChild>
+                    <Link href="/contact">Pieteikties</Link>
+                  </Button>
+                </div>
+              </Card>
+            )}
           </div>
         </div>
       </section>
